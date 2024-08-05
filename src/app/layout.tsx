@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-
+import { NavbarDemo } from "@/components/Navbar";
+import Link from "next/link";
 const inter = Inter({ subsets: ["latin"] });
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +17,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className="class">
+      <body className={inter.className}>
+        <div className="relative  flex justify-center items-center">
+          <NavbarDemo/>
+        </div>
+
+        {children}
+        <div> <Footer/></div>
+      </body>
     </html>
   );
 }
